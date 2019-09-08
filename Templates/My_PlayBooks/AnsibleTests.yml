@@ -1,6 +1,6 @@
 ---
 - name: Test Windows Network Settings
-  hosts: dc01.mx.gp
+  hosts: 172.31.148.132
   tasks:
     - name: run ipconfig
       raw: ipconfig
