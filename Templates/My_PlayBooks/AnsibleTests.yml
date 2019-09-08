@@ -1,6 +1,6 @@
 ---
 - name: Test Windows Network Settings
-  hosts: windows
+  hosts: all
   tasks:
     - name: run ipconfig
       raw: ipconfig
