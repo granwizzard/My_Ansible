@@ -7,14 +7,12 @@
       register: ipconfig
     - debug: var=ipconfig
 
-- name: Windows Updates
-  win_updates:
-      category_names: # not required. choices: Application;Connectors;CriticalUpdates;DefinitionUpdates;DeveloperKits;FeaturePacks;Guidance;SecurityUpdates;ServicePacks;Tools;UpdateRollups;Updates. A scalar or list of categories to install updates from
-      - CriticalUpdates
-      - SecurityUpdates
-      state: installed # not required. choices: installed;searched. Controls whether found updates are returned as a list or actually installed.,This module also supports Ansible check mode, which has the same effect as setting state=searched
-
-
-- name: Reboot host if required
-  win_reboot:
-  when: update_result.reboot_required
+    - name: Windows Updates
+      win_updates:
+          category_names: # not required. choices: Application;Connectors;CriticalUpdates;DefinitionUpdates;DeveloperKits;FeaturePacks;Guidance;SecurityUpdates;ServicePacks;Tools;UpdateRollups;Updates. A scalar or list of categories to install updates from
+          - CriticalUpdates
+          - SecurityUpdates
+          state: installed # not required. choices: installed;searched. Controls whether found updates are returned as a list or actually installed.,This module also supports Ansible check mode, which has the same effect as setting state=searched
+    - name: Reboot host if required
+      win_reboot:
+      when: update_result.reboot_required
