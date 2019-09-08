@@ -6,7 +6,8 @@
       raw: ipconfig
       register: ipconfig
     - debug: var=ipconfig
-    - name: Install all critical and security updates
+
+- name: Install all critical and security updates
   win_updates:
     category_names:
     - CriticalUpdates
