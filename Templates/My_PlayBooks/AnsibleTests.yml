@@ -1,6 +1,6 @@
 ---
 - name: Test Windows Network Settings
-  hosts: 172.31.148.132
+  hosts: all
   tasks:
     - name: run ipconfig
       raw: ipconfig
