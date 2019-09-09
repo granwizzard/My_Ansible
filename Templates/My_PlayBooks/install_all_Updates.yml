@@ -1,14 +1,14 @@
 ---
-- name: Test Windows Network Settings
+- name: Windows Updates All
   hosts: all
-  Tasks:
+  tasks:
     - name: Install all critical and security updates
       win_updates:
-        category_names:
-        - CriticalUpdates
-        - SecurityUpdates
-        - UpdateRollups
-        state: installed
+      category_names:
+      - CriticalUpdates
+      - SecurityUpdates
+      - UpdateRollups
+      state: installed
       register: update_result
 
     - name: reboot host if required
