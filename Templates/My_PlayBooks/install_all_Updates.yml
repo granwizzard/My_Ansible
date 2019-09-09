@@ -1,20 +1,20 @@
 ---
 - name: Test Windows Network Settings
   hosts: all
-- name: Install all critical and security updates
-  win_updates:
-    category_names:
-    - CriticalUpdates
-    - SecurityUpdates
-    - UpdateRollups
-    state: installed
-  register: update_result
+  Tasks:
+    - name: Install all critical and security updates
+      win_updates:
+        category_names:
+        - CriticalUpdates
+        - SecurityUpdates
+        - UpdateRollups
+        state: installed
+      register: update_result
 
-- name: reboot host if required
-  win_reboot:
- # when: update_result.reboot_required
-  when: update_count.found_update_count|int >= 1
-      
+    - name: reboot host if required
+      win_reboot:
+      when: update_count.found_update_count|int >= 1
+        
 
 
       
