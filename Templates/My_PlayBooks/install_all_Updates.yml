@@ -1,4 +1,6 @@
 ---
+- name: Test Windows Network Settings
+  hosts: all
 - name: Install all critical and security updates
   win_updates:
     category_names:
