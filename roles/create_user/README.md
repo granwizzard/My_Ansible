@@ -1,7 +1,7 @@
 Create User
 =========
 
-Create user and upload ssh key for authentucation
+Create user and upload ssh key for authentication
 
 Requirements
 ------------
