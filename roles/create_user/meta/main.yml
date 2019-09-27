@@ -1,0 +1,29 @@
+galaxy_info:
+  author: David Paris
+  description: Creates a user with ssh
+  company: your company (optional)
+
+  license: MIT
+
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: Debian
+      versions:
+        - jessie
+        - stretch
+    - name: Ubuntu
+      versions:
+        - trusty
+        - xenial
+        - bionic
+
+  galaxy_tags:
+    - deploy
+    - user
+    - ssh
+    - sudo
+    - system
+
+dependencies: []
+  
