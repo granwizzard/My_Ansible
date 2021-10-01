@@ -7,15 +7,6 @@ spec:
     kinds:
       - apiGroups: [""]
         kinds: ["Namespace"]
-    excludedNamespaces:
-    - kube-system
-    - kube-public
-    - kube-node-lease
-    - default
-    - gatekeeper-system
-    - kured
-    - calico-system
-    - ingress-nginx
-    - tigera-operator
+    excludedNamespaces: ["kube-system", "kube-public", "kube-node-lease", "default", "gatekeeper-system", "kured", "calico-system", "ingress-nginx", "tigera-operator"]
   parameters:
     labels: ["owner", "app", "role"]
