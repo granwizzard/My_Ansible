@@ -2,7 +2,7 @@ apiVersion: templates.gatekeeper.sh/v1beta1
 kind: ConstraintTemplate
 metadata:
  annotations:
-    azure-policy-definition-id-1: "/providers/Microsoft.Management/managementgroups/CISUBSCRIPTIONS/providers/Microsoft.Authorization/policyDefinitions/K8s Enforcing Namespace Labels"
+    azure-policy-definition-id-1: /providers/Microsoft.Management/managementgroups/CISUBSCRIPTIONS/providers/Microsoft.Authorization/policyDefinitions/52166e4d-81e5-4a79-9648-739e3989daf8
     constraint-template: https://raw.githubusercontent.com/granwizzard/My_Ansible/master/mandatory-labels-constraintsTemplate.yaml
     constraint-template-installed-by: azure-policy-addon
  labels:
