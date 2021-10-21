@@ -1,13 +1,20 @@
-# src: https://github.com/open-policy-agent/gatekeeper/blob/master/demo/basic/templates/k8srequiredlabels_template.yaml
+# src: https://github.com/open-policy-agent/gatekeeper/blob/master/demo/basic/templates/k8sAzurerequiredlabels_template.yaml
 apiVersion: templates.gatekeeper.sh/v1beta1
 kind: ConstraintTemplate
 metadata:
-  name: k8srequiredlabels
+ annotations:
+    azure-policy-definition-id-1: "/providers/Microsoft.Management/managementgroups/CISUBSCRIPTIONS/providers/Microsoft.Authorization/policyDefinitions/K8s Enforcing Namespace Labels"
+    constraint-template: https://raw.githubusercontent.com/granwizzard/My_Ansible/master/mandatory-labels-constraintsTemplate.yaml
+    constraint-template-installed-by: azure-policy-addon
+labels:
+    managed-by: azure-policy-addon
+name: k8sAzurerequiredlabels
+  
 spec:
   crd:
     spec:
       names:
-        kind: K8sRequiredLabels
+        kind: k8sAzurerequiredlabels
       validation:
         # Schema for the `parameters` field
         openAPIV3Schema:
@@ -18,7 +25,7 @@ spec:
   targets:
     - target: admission.k8s.gatekeeper.sh
       rego: |
-        package k8srequiredlabels
+        package k8sAzurerequiredlabels
         violation[{"msg": msg, "details": {"missing_labels": missing}}] {
           provided := {label | input.review.object.metadata.labels[label]}
           required := {label | label := input.parameters.labels[_]}
