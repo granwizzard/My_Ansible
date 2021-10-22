@@ -1,5 +1,5 @@
 apiVersion: constraints.gatekeeper.sh/v1beta1
-kind: K8sRequiredLabels
+kind: K8sAzureRequiredLabels
 metadata:
   name: ns-mandatory-labels
 spec:
@@ -9,4 +9,4 @@ spec:
         kinds: ["Namespace"]
     excludedNamespaces: ["kube-system", "kube-public", "kube-node-lease", "default", "gatekeeper-system", "kured", "calico-system", "ingress-nginx", "tigera-operator"]
   parameters:
-    - labels: ["owner", "app", "role"]
+    labels: ["owner", "app", "role"]
