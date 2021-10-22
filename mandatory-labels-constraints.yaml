@@ -1,16 +1,12 @@
 apiVersion: constraints.gatekeeper.sh/v1beta1
-kind: k8sazurerequiredlabels
+kind: K8sAzureRequiredLabels
 metadata:
   name: ns-mandatory-labels
 spec:
   match:
     kinds:
       - apiGroups: [""]
-        kinds: ["Namespace"]
+        kinds: ["Namespace", "Pod"]
     excludedNamespaces: ["kube-system", "kube-public", "kube-node-lease", "default", "gatekeeper-system", "kured", "calico-system", "ingress-nginx", "tigera-operator"]
   parameters:
-    labels: 
-     - key: owner
-       allowedRegex: "^[a-zA-Z]+.cofcointernational.com$"
-     - key: app
-     - key: role
+    labels: ["owner", "app", "role"]
