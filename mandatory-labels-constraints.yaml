@@ -1,5 +1,5 @@
 apiVersion: constraints.gatekeeper.sh/v1beta1
-kind: K8sAzureRequiredLabels
+kind: k8sazurerequiredlabels
 metadata:
   name: ns-mandatory-labels
 spec:
